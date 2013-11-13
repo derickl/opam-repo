@@ -1,0 +1,17 @@
+diff --git a/lib/libre2/Makefile b/lib/libre2/Makefile
+index 4ded8ec..56da68e 100644
+--- a/lib/libre2/Makefile
++++ b/lib/libre2/Makefile
+@@ -10,9 +10,9 @@ all: obj/libre2.a obj/so/libre2.so
+ # LDPCRE=-L/usr/local/lib -lpcre
+ 
+ CXX=g++
+-CXXFLAGS=-Wall -O3 -g -pthread  # can override
+-RE2_CXXFLAGS=-Wno-sign-compare -c -I. $(CCPCRE)  # required
+-LDFLAGS=-pthread
++CXXFLAGS=-Wall -O3 -g -pthread -std=c++11 -stdlib=libc++ # can override
++RE2_CXXFLAGS=-Wno-sign-compare -std=c++11 -stdlib=libc++ -c -I. $(CCPCRE)  # required
++LDFLAGS=-pthread -stdlib=libc++
+ AR=ar
+ ARFLAGS=rsc
+ NM=nm
