@@ -1,0 +1,13 @@
+diff --git a/configure b/configure
+index c843c38..aed31b5 100755
+--- a/configure
++++ b/configure
+@@ -1,4 +1,5 @@
+ #!/bin/bash
+ rm -f ocp-build.root*
+-ocp-build -init -scan
+-exec ocp-build configure "$@"
++ocp-build init
++ocp-build -scan
++exec ocp-build configure "$@"
+\ No newline at end of file
