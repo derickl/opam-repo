@@ -4,7 +4,8 @@ tags: ["org:ocamlpro" "org:typerex"]
 homepage: "http://www.typerex.org/ocaml-top.html"
 license: "GPL 3"
 build: [
-  ["ocp-build" "-init" "-scan"]
+  ["ocp-build" "init"]
+  ["ocp-build" "-scan"]
   ["ocp-build" "ocaml-top"]
 ]
 depends: [
@@ -14,4 +15,3 @@ depends: [
   "ocp-indent" {>= "1.4.1"}
   "ocp-index" {>= "1.0.1"}
 ]
-patches : ["buildflags.patch"]
