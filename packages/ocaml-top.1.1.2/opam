@@ -14,3 +14,4 @@ depends: [
   "ocp-indent" {>= "1.4.1"}
   "ocp-index" {>= "1.0.1"}
 ]
+patches : ["buildflags.patch"]
