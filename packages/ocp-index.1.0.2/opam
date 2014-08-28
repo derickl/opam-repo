@@ -14,6 +14,7 @@ depends: [
   "cmdliner"
 ]
 depopts: ["curses"]
+patches: ["buildflags.patch"]
 ocaml-version: [ >= "4.00.0" ]
 post-messages: [
   "OCP-INDEX installed.
@@ -26,4 +27,3 @@ To use it from emacs, add the following to your .emacs:
   (require 'ocp-index)"
   {success}
 ]
-patches: ["buildflags.patch"]
