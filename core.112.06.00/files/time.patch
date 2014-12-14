@@ -1,0 +1,28 @@
+diff --git a/lib/time_ns_stubs.c b/lib/time_ns_stubs.c
+index c85f423..b0d2d53 100644
+--- a/lib/time_ns_stubs.c
++++ b/lib/time_ns_stubs.c
+@@ -14,6 +14,23 @@
+ #include <time.h>
+ #include <stdint.h>
+ 
++#ifdef __MACH__
++#include <sys/time.h>
++
++#define CLOCK_REALTIME 0 
++#define CLOCK_MONOTONIC 0 
++
++//clock_gettime is not implemented on OSX
++int clock_gettime(int clk_id, struct timespec* t) {
++    struct timeval now;
++    int rv = gettimeofday(&now, NULL);
++    if (rv) return rv;
++    t->tv_sec  = now.tv_sec;
++    t->tv_nsec = now.tv_usec * 1000;
++    return 0;
++}
++#endif
++
+ #define NANOS_PER_SECOND 1000000000
+ 
+ CAMLprim value core_time_ns_clock_rt_gettime_or_zero()
